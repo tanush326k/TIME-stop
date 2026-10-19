@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clock + Stopwatch</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Clock & Stopwatch</h1>
+      <div class="header-actions">
+        <p class="hint">Space = Start/Stop · L = Lap · R = Reset</p>
+        <button id="theme-toggle" class="btn" aria-pressed="false" title="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <section class="clock card" aria-label="Current time">
+      <h2>Current Time</h2>
+      <div id="clock" class="clock-display" aria-live="polite">--:--:--</div>
+    </section>
+
+    <section class="stopwatch card" aria-label="Stopwatch">
+      <h2>Stopwatch</h2>
+      <div id="sw-display" class="sw-display">00:00.00</div>
+
+      <div class="controls">
+        <button id="sw-start" class="btn primary">Start</button>
+        <button id="sw-lap" class="btn" disabled>Lap</button>
+        <button id="sw-reset" class="btn" disabled>Reset</button>
+      </div>
+
+      <div class="laps">
+        <h3>Laps</h3>
+        <ol id="lap-list" class="lap-list"></ol>
+      </div>
+    </section>
+
+    <footer class="credits">
+      Simple demo — open index.html to run locally.
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
