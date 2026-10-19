@@ -1,0 +1,101 @@
+:root{
+  /* Dark theme (default) */
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#9aa7bf;
+  --accent:#5eead4;
+  --accent-2:#60a5fa;
+  --glass: rgba(255,255,255,0.03);
+  --radius:12px;
+  --text: #e6eef8;
+}
+
+/* Light theme overrides */
+[data-theme="light"]{
+  --bg: #f6f9fc;
+  --card: #ffffff;
+  --muted: #5b6b80;
+  --accent: #0ea5a4;
+  --accent-2: #2563eb;
+  --glass: rgba(2,6,23,0.04);
+  --text: #0f1724;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg,var(--bg),#071024 120%);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.app{
+  width:100%;
+  max-width:900px;
+}
+
+header{display:flex;align-items:baseline;gap:16px;justify-content:space-between}
+.header-actions{display:flex;align-items:center;gap:12px}
+h1{margin:0;font-size:1.4rem}
+.hint{color:var(--muted);margin:0;font-size:0.85rem}
+
+.card{
+  background:linear-gradient(180deg,var(--card),rgba(255,255,255,0.02));
+  padding:18px;
+  border-radius:var(--radius);
+  margin-top:16px;
+  box-shadow:0 6px 18px rgba(3,7,18,0.6);
+}
+
+.clock-display{
+  font-size:2.2rem;
+  font-weight:600;
+  letter-spacing:0.02em;
+  color:var(--accent-2);
+  margin-top:6px;
+}
+
+.stopwatch .sw-display{
+  font-size:2rem;
+  font-weight:700;
+  color:var(--accent);
+  margin:10px 0;
+}
+
+.controls{display:flex;gap:8px;align-items:center}
+.btn{
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.04);
+  color:inherit;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+.btn.primary{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#032;
+  border:none;
+}
+.btn:disabled{opacity:0.45;cursor:not-allowed}
+.laps{margin-top:12px}
+.lap-list{padding-left:18px;margin:6px 0;max-height:220px;overflow:auto}
+.lap-list li{padding:6px 8px;background:rgba(255,255,255,0.02);border-radius:8px;margin-bottom:6px;font-size:0.95rem}
+.credits{margin-top:16px;color:var(--muted);font-size:0.9rem;text-align:center}
+
+/* Theme toggle tweaks */
+#theme-toggle{font-size:1rem;padding:6px 8px}
+
+/* responsive */
+@media (min-width:700px){
+  header{gap:24px}
+  .card{display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .clock{flex:1}
+  .stopwatch{flex:1}
+  .stopwatch .controls{justify-content:flex-start}
+}
